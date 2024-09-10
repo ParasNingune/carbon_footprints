@@ -1,31 +1,58 @@
-import React from 'react'
-import {Link} from "react-router-dom";
-import logo from "../assets/logo.png"
-import '../Styles/navBar.css'
+import React from 'react';
+import { Box, Image, Link as ChakraLink, Flex } from '@chakra-ui/react';
+import logo2 from '../assets/logo2.png';
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     const links = [
-        { name: "Calculate Emissions", link: "/emissions" },
-        { name: "Estimate Sink", link: "/sink" },
-        { name: "Visualize", link: "/visualize" },
-        { name: "Solutions", link: "/solutions" },
-        { name: "About Us", link: "/aboutus" },
+        { name: "Services", link: "/services" },
+        { name: "Contact Us", link: "/contactus" },
+        { name: "Login", link: "/login" },
     ];
 
     return (
-    <div className='navbar'>
-        <div className='logo'>
-            <img src={logo} alt='logo' />
-        </div>
+        <Box
+            as="nav"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            padding={4}
+            backgroundColor="rgba(0, 0, 0, 0.7)"
+            boxShadow="md"
+            position="fixed"
+            top={0}
+            left={0}
+            width="100%"
+            zIndex={1000}
+        >
+            {/* Logo */}
+            <Box>
+                <Image src={logo2} alt="logo" boxSize="50px" />
+            </Box>
 
-        <div className='nav-links'> 
-            {links.map((link, index) => (
-                <Link key={index} to={link.link}>
-                    {link.name}
-                </Link>
-            ))}
-        </div>
-    </div>
-    )
+            {/* Navigation Links */}
+            <Flex
+                as="ul"
+                listStyleType="none"
+                spacing={4}
+                alignItems="center"
+                margin={0}
+            >
+                {links.map((link, index) => (
+                    <Box key={index} marginX={3}>
+                        <Link
+                            as={Link}
+                            to={link.link}
+                            fontSize="lg"
+                            color="white"
+                            _hover={{ textDecoration: "underline", color: "teal.200" }}
+                            padding={2}
+                        >
+                            {link.name}
+                        </Link>
+                    </Box>
+                ))}
+            </Flex>
+        </Box>
+    );
 }
-
