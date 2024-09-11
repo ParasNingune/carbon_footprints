@@ -41,7 +41,7 @@ export default function Login() {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      bgGradient="linear(to-r, orange.300, yellow.400, green.400)"
+      bgGradient="linear(to-b, green.600, green.100)"
 
     >
       <Container
