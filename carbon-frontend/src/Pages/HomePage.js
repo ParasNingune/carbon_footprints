@@ -1,19 +1,23 @@
 import React from 'react';
-import { Box, Image, Heading, Text, Container } from '@chakra-ui/react';
+import { Box, Image, Heading, Text, Container, Flex, Stack } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import NavBar from '../Components/NavBar';
+import { IoMail } from "react-icons/io5";
+import { MdMessage } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import photo from "../assets/background.jpg"
 
 export default function HomePage() {
   return (
     <Box
       className="main-body"
-      minHeight="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
       color="white"
-      position="relative"
-      overflow="hidden"
+      overflowY={'auto'}
     >
       {/* Background Image */}
       <Image
@@ -22,8 +26,8 @@ export default function HomePage() {
         position="absolute"
         top={0}
         left={0}
-        width="100%"
-        height="100%"
+        width="100vw"
+        height="100vh"
         objectFit="cover"
         // zIndex={-2}
         filter="brightness(0.3)"
@@ -49,7 +53,10 @@ export default function HomePage() {
         padding={6}
         paddingInline={1}
         mt={10}
-        zIndex={1}>
+        zIndex={1}
+        position={'absolute'}
+        top={'50px'}
+        >
         <Text
           fontSize="6xl" 
           lineHeight="short" 
@@ -70,6 +77,8 @@ export default function HomePage() {
         padding={8}
         mt={10}
         zIndex={1}
+        position={'absolute'}
+        top={'300px'}
       >
         <Heading as="h1" fontSize="3xl" mb={4} color="teal.200">
           Project Kasukabe helps you understand how your daily choices impact climate change.
@@ -82,6 +91,145 @@ export default function HomePage() {
           of mining operations, companies and individuals can identify ways to reduce environmental impact. Our carbon footprint calculator for
           Indian coal mines helps measure these emissions, providing insights that can guide sustainable practices and cleaner energy transitions.
         </Text>
+      </Container>
+
+      {/*Services container*/}
+      <Container
+        className='Services-Container'
+        id='Services'
+        height={'100vh'}
+        width={'100vw'}
+      >
+        <Image
+          src='https://visiblegain.in/our-service.jpg'
+          alt='background image'
+          top={'100vh'}
+          width={'100vw'}
+          height={'100vh'}
+          left={0}
+          position={'absolute'}
+        />
+
+        <Card
+            width={'24vw'}
+            left={4}
+            top={'160vh'}
+            position={'absolute'}
+
+          >
+            <CardBody>
+              <Image
+                src={photo}
+                alt='estimate carbon image'
+                borderRadius={'lg'}
+                />
+              <Stack mt={6} spacing={3}>
+                <Heading size={32}>Estimate Emissions</Heading>
+                <Text>Estimate your carbon emissions by filling certain values</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          <Card
+            width={'24vw'}
+            left={380}
+            top={'160vh'}
+            position={'absolute'}
+          >
+            <CardBody>
+              <Image
+                src={photo}
+                alt='estimate carbon image'
+                borderRadius={'lg'}
+                />
+              <Stack mt={6} spacing={3}>
+                <Heading size={32}>Estimate Sink</Heading>
+                <Text>Estimate your carbon sink by filling certain values</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          <Card
+          width={'24vw'}
+          right={375}
+          top={'160vh'}
+          position={'absolute'}
+          >
+            <CardBody>
+              <Image
+                src={photo}
+                alt='estimate carbon image'
+                borderRadius={'lg'}
+                />
+              <Stack mt={6} spacing={3}>
+                <Heading size={32}>Gap Analysis</Heading>
+                <Text>Analyze the gap between carbon  emissions and carbon sink</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+
+          <Card
+            width={'24vw'}
+            right={4}
+            top={'160vh'}
+            position={'absolute'}
+          >
+            <CardBody>
+              <Image
+                src={photo}
+                alt='estimate carbon image'
+                borderRadius={'lg'}
+                />
+              <Stack mt={6} spacing={3}>
+                <Heading size={32}>Solutions</Heading>
+                <Text>Providing solutions to minimize the gap between emissions and sink</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+
+      </Container>
+
+      {/*Contact Us container*/}
+      <Container 
+        className='ContactUsContainer'
+        id='ContactUs'
+      >
+        <Image
+        src='https://static.vecteezy.com/system/resources/previews/044/764/760/non_2x/businesswoman-looking-through-a-telescope-business-concept-vector.jpg'
+        alt='background image'
+        top={'200vh'}
+        width="100vw"
+        height="100vh"
+        left={0}
+        position={'absolute'}
+
+        />
+        <Heading 
+          as="h1" 
+          fontSize="50px" 
+          fontWeight={800} 
+          color="black"
+          position={'absolute'}
+          top={'220vh'}
+          right={'180px'}
+        >
+          Contact Us
+        </Heading>
+      </Container>
+
+      <Container
+        position={'absolute'}
+        top={'231vh'}
+        height={'120px'}
+        width={'600px'}
+        right={'80px'}
+        display={'flex'}
+        spa
+      >
+          <IoMail size={120} color='black' spacing={100}/>
+          <MdMessage size={120} color='black'/>
+          <FaLinkedin size={120} color='black'/>
+          <FaInstagram size={120} color='black'/>
       </Container>
     </Box>
   );

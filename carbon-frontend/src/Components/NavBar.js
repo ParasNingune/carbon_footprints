@@ -5,10 +5,34 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     const links = [
-        { name: "Services", link: "/services" },
-        { name: "Contact Us", link: "/contactus" },
+        { name: "Services", link: "/" },
+        { name: "Contact Us", link: "/" },
         { name: "Login", link: "/login" },
     ];
+
+    const handleServiceScroll = (e) => {
+        e.preventDefault(); // Prevent the default behavior of the link
+        window.scrollBy({
+            top: window.innerHeight, // Scroll by 100vh
+            behavior: 'smooth',      // Smooth scrolling effect
+        });
+    };
+
+    const handleContactScroll = (e) => {
+        e.preventDefault(); // Prevent the default behavior of the link
+        window.scrollBy({
+            top: 2*window.innerHeight, // Scroll by 200vh
+            behavior: 'smooth',      // Smooth scrolling effect
+        });
+    };
+
+    const handleHomeScroll = (e) => {
+        e.preventDefault(); // Prevent the default behavior of the link
+        window.scrollBy({
+            top: 0*window.innerHeight, // Scroll by 200vh
+            behavior: 'smooth',      // Smooth scrolling effect
+        });
+    };
 
     return (
         <Box
@@ -26,8 +50,8 @@ export default function NavBar() {
             zIndex={1000}
         >
             {/* Logo */}
-            <Box>
-                <Image src={logo2} alt="logo" boxSize="50px" />
+            <Box onClick={handleHomeScroll}>
+                <Image src={logo2} alt="logo" boxSize="50px"/>
             </Box>
 
             {/* Navigation Links */}
@@ -38,20 +62,45 @@ export default function NavBar() {
                 alignItems="center"
                 margin={0}
             >
-                {links.map((link, index) => (
-                    <Box key={index} marginX={3}>
-                        <Link
-                            as={Link}
-                            to={link.link}
-                            fontSize="lg"
-                            color="white"
-                            _hover={{ textDecoration: "underline", color: "teal.200" }}
-                            padding={2}
-                        >
-                            {link.name}
-                        </Link>
-                    </Box>
-                ))}
+                <Box marginX={3}>
+                    <Link
+                        as={Link}
+                        to={'/#Services'}
+                        fontSize="lg"
+                        color="white"
+                        _hover={{ textDecoration: "underline", color: "teal.200" }}
+                        padding={2}
+                    >
+                        Services
+                    </Link>
+                </Box>
+
+                <Box marginX={3}>
+                    <Link
+                        as={Link}
+                        to={'/#ContactUs'}
+                        fontSize="lg"
+                        color="white"
+                        _hover={{ textDecoration: "underline", color: "teal.200" }}
+                        padding={2}
+                    >
+                        Contact Us
+                    </Link>
+                </Box>
+
+                <Box  marginX={3}>
+                    <Link
+                        as={Link}
+                        to={'/login'}
+                        fontSize="lg"
+                        color="white"
+                        _hover={{ textDecoration: "underline", color: "teal.200" }}
+                        padding={2}
+                    >
+                        Login
+                    </Link>
+                </Box>
+
             </Flex>
         </Box>
     );
