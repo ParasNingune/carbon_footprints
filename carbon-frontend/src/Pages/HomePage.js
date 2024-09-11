@@ -80,7 +80,7 @@ export default function HomePage() {
       <Box
           className="Services-Container"
           id="Services"
-          bgGradient="linear(to-r, green.900, green.700)"
+          bgGradient="linear(to-b, green.600, green.100)"
 
           display="flex"
           flexDirection="column"
@@ -119,7 +119,7 @@ export default function HomePage() {
         <Box
           className="ContactUsContainer"
           id="ContactUs"
-          bgGradient="linear(to-r, yellow.500, yellow.300)"
+          bgGradient="linear(to-b, green.600, green.100)"
           display="flex"
           flexDirection="column"
           alignItems="center"

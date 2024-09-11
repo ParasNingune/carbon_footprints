@@ -20,7 +20,7 @@ export default function NavBar() {
     { name: 'Carbon Emissions', link: '/emissions' },
     { name: 'Carbon Sink', link: '/sink' },
     { name: 'Solutions', link: '/solutions' },
-    { name: 'Visualizations', link: '/visualizations' },
+    { name: 'Visualizations', link: '/visualization' },
   ];
 
   const handleLogout = () => {
