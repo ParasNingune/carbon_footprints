@@ -29,13 +29,14 @@ export default function HomePage() {
 
       <Box
         display="flex"
+        id='Home'
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
         textAlign="center"
         padding={10}
-        minHeight="90vh"  // Adjusted height to make the section larger
-        mt={10}            // Adds some margin at the top to give it space
+        minHeight="100vh"  
+        mt={10}            
       >
         {/* Main Heading */}
         <Container maxW="container.md" textAlign="center" padding={6} mt={10}>
