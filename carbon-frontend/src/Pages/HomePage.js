@@ -88,12 +88,12 @@ export default function HomePage() {
           justifyContent="center"
           padding={10}
           mt={10}
-          minHeight="70vh"
+          minHeight="80vh"
         >
-          <Heading as="h2" fontSize="4xl" fontWeight="bold" color="white" mb={8}>
+          <Heading as="h2" fontSize="4xl" fontWeight="bold" color="white" mb={8} top={'125vh'} position={'absolute'}>
             Our Services
           </Heading>
-          <Flex wrap="wrap" gap={8} justifyContent="center" alignItems="center">
+          <Flex wrap="wrap" gap={8} justifyContent="center" alignItems="center" top={'135vh'} position={'absolute'}>
             {[
               { title: "Estimate Emissions", desc: "Estimate your carbon emissions by filling certain values." },
               { title: "Estimate Sink", desc: "Estimate your carbon sink by filling certain values." },
