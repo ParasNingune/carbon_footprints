@@ -131,6 +131,13 @@ export default function Solutions() {
                 <br/>
                 <br/>While biomass carbon removal and storage can offer long-term CO2 removal.
               </Text>
+              <Image
+                src="https://a.storyblok.com/f/287364/999x666/13cbb6f55f/bicrs-pathway.jpeg"
+                height={500}
+                width={900}
+                marginTop={10}
+                marginLeft={220}
+              />
             </TabPanel>
 
             <TabPanel>
