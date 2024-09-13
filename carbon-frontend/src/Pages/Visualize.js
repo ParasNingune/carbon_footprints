@@ -1,6 +1,28 @@
 import React from 'react';
-import { Box, Image, Tabs, TabList, TabPanels, Tab, TabPanel, textDecoration } from '@chakra-ui/react';
+import { Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, LineChart, Line, PieChart, Pie, Cell, ScatterChart, Scatter } from 'recharts';
 import NavBar from '../Components/NavBar2';
+import { GiHistogram } from 'react-icons/gi';
+import { FcHeatMap } from 'react-icons/fc';
+
+// Sample data for the bar graphs
+const data = [
+  { name: 'Electricity', value: 4000 },
+  { name: 'Fuel', value: 3000 },
+  { name: 'Shipping', value: 2000 },
+  { name: 'Explosion', value: 2780 },
+  { name: 'Other Factors', value: 1890 },
+];
+
+const data2 = [
+  { x: 10, y: 20 },
+  { x: 30, y: 70 },
+  { x: 50, y: 100 },
+  { x: 70, y: 120 },
+  { x: 90, y: 150 },
+];
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 import photo from "../assets/photo.jpg"
 import Chart from "react-apexcharts";
 
@@ -145,57 +167,64 @@ export default function Visualize() {
     <Box className="main-body" width={'100vw'}>
       <NavBar />
       {/* Tabs Navigation */}
-      <Box width={'100%'} padding={6} bgGradient="linear(to-b, #f5f7fa, #c3cfe2)" position={'absolute'} top={'85px'}>
-        <Tabs variant="soft-rounded" colorScheme="green" isFitted >
+      <Box width={'100%'} padding={6} bgGradient="linear(to-b, #d3d3d3, #f0f0f0)" position={'absolute'} top={'85px'}>
+        <Tabs variant="soft-rounded" colorScheme="yellow" isFitted>
           <TabList>
-            <Tab>Emission Analysis</Tab>
-            <Tab>Sink Analysis</Tab>
-            <Tab>Gap Analysis</Tab>
+            <Tab fontWeight="bolder">Emission Analysis</Tab>
+            <Tab fontWeight="bolder">Sink Analysis</Tab>
+            <Tab fontWeight="bolder">Gap Analysis</Tab>
           </TabList>
 
           {/* Tab Panels (Content changes based on the selected tab) */}
           <TabPanels>
             {/* Emission Analysis Panel */}
             <TabPanel>
-              <Box bgGradient="linear(to-b, green.600, green.100)" padding={5} borderRadius={25}>
+              <Box bgGradient="linear(to-b, #000000, #434343)" padding={5} borderRadius={25}>
                 <Box display={'flex'} padding={5}>
-                  {/* First two graphs */}
+                  {/* First two bar graphs */}
                   <Box className="graph-1" marginRight={5}>
-                  <Image
-                      src={'https://i0.wp.com/statisticsbyjim.com/wp-content/uploads/2021/06/bar_chart_clustered.png?fit=576%2C384&ssl=1'}
-                      alt="Graph 2 - Emission Analysis"
+                    <Image
+                      src={'https://cdn1.byjus.com/wp-content/uploads/2019/11/Line-Graph.png'}
+                      alt="Graph 1 - Emission Analysis"
                       height={'500px'}
                       width={'800px'}
                     />
                   </Box>
 
                   <Box className="graph-2">
-                    <Image
-                      src={'https://i0.wp.com/statisticsbyjim.com/wp-content/uploads/2021/06/bar_chart_clustered.png?fit=576%2C384&ssl=1'}
-                      alt="Graph 2 - Emission Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                    <LineChart width={750} height={500} data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line dataKey="value" fill="#ffcc00" />
+                    </LineChart>
                   </Box>
                 </Box>
                 <Box display={'flex'} padding={5}>
-                  {/* Second two graphs */}
+                  {/* Second two bar graphs */}
                   <Box className="graph-3" marginRight={5}>
-                    <Image
-                      src={'https://cdn.ttgtmedia.com/rms/onlineimages/histogram_of_test_scores-h_half_column_mobile.png'}
-                      alt="Graph 3 - Emission Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                    <PieChart width={750} height={500}>
+                      <Pie data={data} dataKey="value" nameKey="name" fill="#ffc658" label>
+                        {data.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                      <Legend />
+                    </PieChart>
                   </Box>
 
-                  <Box className="graph-4">
-                    <Image
-                      src={'https://media.geeksforgeeks.org/wp-content/uploads/20220920123646/Piechartexample2.png'}
-                      alt="Graph 4 - Emission Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                  <Box className="graph-4" marginRight={5}>
+                    <ScatterChart width={750} height={500}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="x" name="X Axis" />
+                      <YAxis dataKey="y" name="Y Axis" />
+                      <Tooltip />
+                      <Legend />
+                      <Scatter data={data2} fill="#ffcc00" />
+                    </ScatterChart>
                   </Box>
                 </Box>
               </Box>
@@ -203,45 +232,54 @@ export default function Visualize() {
 
             {/* Sink Analysis Panel */}
             <TabPanel>
-              <Box bgGradient="linear(to-b, green.600, green.100)" padding={5} borderRadius={25}>
+              <Box bgGradient="linear(to-b, #000000, #434343)" padding={5} borderRadius={25}>
                 <Box display={'flex'} padding={5}>
-                  {/* First two graphs for Sink Analysis */}
+                  {/* First two bar graphs */}
                   <Box className="graph-1" marginRight={5}>
-                    <Image
-                      src={photo}
-                      alt="Graph 1 - Sink Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                    <BarChart width={750} height={500} data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="value" fill="#8884d8" />
+                    </BarChart>
                   </Box>
 
                   <Box className="graph-2">
-                    <Image
-                      src={photo}
-                      alt="Graph 2 - Sink Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                    <LineChart width={750} height={500} data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line dataKey="value" fill="#82ca9d" />
+                    </LineChart>
                   </Box>
                 </Box>
                 <Box display={'flex'} padding={5}>
-                  {/* Second two graphs for Sink Analysis */}
+                  {/* Second two bar graphs */}
                   <Box className="graph-3" marginRight={5}>
-                    <Image
-                      src={photo}
-                      alt="Graph 3 - Sink Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                    <PieChart width={750} height={500}>
+                      <Pie data={data} dataKey="value" nameKey="name" fill="#ffc658" label>
+                        {data.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                      <Legend />
+                    </PieChart>
                   </Box>
 
-                  <Box className="graph-4">
-                    <Image
-                      src={photo}
-                      alt="Graph 4 - Sink Analysis"
-                      height={'500px'}
-                      width={'800px'}
-                    />
+                  <Box className="graph-4" marginRight={5}>
+                    <ScatterChart width={750} height={500}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="x" name="X Axis" />
+                      <YAxis dataKey="y" name="Y Axis" />
+                      <Tooltip />
+                      <Legend />
+                      <Scatter data={data2} fill="#8884d8" />
+                    </ScatterChart>
                   </Box>
                 </Box>
               </Box>
@@ -250,14 +288,14 @@ export default function Visualize() {
             {/* Gap Analysis Panel */}
             <TabPanel>
               <Box bgGradient="linear(to-b, green.600, green.100)" padding={5} borderRadius={25}>
-                <Image
-                  src={'https://media.geeksforgeeks.org/wp-content/uploads/20220920123646/Piechartexample2.png'}
-                  alt="Gap Analysis Graph"
-                  height={'500px'}
-                  width={'800px'}
-                  margin={25}
-                  marginLeft={275}
-                />
+                <BarChart width={800} height={500} data={data}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#8884d8" />
+                </BarChart>
               </Box>
             </TabPanel>
           </TabPanels>

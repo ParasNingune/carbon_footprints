@@ -19,7 +19,7 @@ export default function NavBar() {
   const links = [
     { name: 'Carbon Emissions', link: '/emissions' },
     { name: 'Carbon Sink', link: '/sink' },
-    { name: 'Solutions', link: '/solutions' },
+    { name: 'Gap Closure', link: '/solutions' },
     { name: 'Visualizations', link: '/visualization' },
   ];
 
