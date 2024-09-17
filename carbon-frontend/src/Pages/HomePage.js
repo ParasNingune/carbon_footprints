@@ -5,14 +5,14 @@ import NavBar from '../Components/NavBar';
 import { IoMail } from "react-icons/io5";
 import { MdMessage } from "react-icons/md";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import photo from "../assets/background.jpg";
+import photo from "../assets/Bg.jpg";
 
 export default function HomePage() {
   return (
     <Box className="main-body" color="white" overflowY="auto">
       {/* Background Image */}
       <Image
-        src="https://www.cedars-digital.com/wp-content/uploads/2024/03/%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A8%AD%E8%A8%88-24.jpg"
+        src={photo}
         alt="Background"
         position="fixed"
         top={0}

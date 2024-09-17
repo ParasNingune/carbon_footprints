@@ -34,19 +34,19 @@ export default function CalEmissions() {
           <VStack spacing={4} width="full">
             <FormControl>
               <FormLabel>Name of Tree</FormLabel>
-              <Input placeholder="Enter state name" bg="gray.50" />
+              <Input placeholder="Enter name of tree" bg="gray.50" />
             </FormControl>
             <FormControl>
               <FormLabel>Vegetation Type</FormLabel>
-              <Input placeholder="Enter energy per time" bg="gray.50" />
+              <Input placeholder="Enter vegetation type" bg="gray.50" />
             </FormControl>
             <FormControl>
               <FormLabel>Area Covered(hectares)</FormLabel>
-              <Input placeholder="Enter responsible area" bg="gray.50" />
+              <Input placeholder="Enter area covered in hectares" bg="gray.50" />
             </FormControl>
             <FormControl>
               <FormLabel>Carbon Sequestration Rate(tons CO2/hectares/year)</FormLabel>
-              <Input placeholder="Enter total area" bg="gray.50" />
+              <Input placeholder="Enter Carbon Sequestration Rate" bg="gray.50" />
             </FormControl>
             <FormControl>
               <FormLabel>Additional Details</FormLabel>

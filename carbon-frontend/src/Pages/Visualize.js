@@ -85,34 +85,33 @@ export default function Visualize() {
                 <Box display={'flex'} padding={5}>
                   {/* First two bar graphs */}
                   <Box className="graph-1" marginRight={5}>
-                    <BarChart width={750} height={500} data={data_emissions}>
+                    <BarChart width={750} height={500} data={data_sink}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
                       <Tooltip />
                       <Legend />
-                      <Bar dataKey="value" fill=" #FFFF00" />
+                      <Bar dataKey="value" fill="#FFF000" />
                     </BarChart>
                   </Box>
 
-                  <Box className="graph-2" marginTop={5}>
-                    <LineChart width={750} height={500} data={data_emissions}>
+                  <Box className="graph-2">
+                    <LineChart width={750} height={500} data={data_sink}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
                       <Tooltip />
                       <Legend />
-                      <Line dataKey="value" fill="#ffcc00" />
+                      <Line dataKey="value" fill="#FFF000" />
                     </LineChart>
                   </Box>
                 </Box>
                 <Box display={'flex'} padding={5}>
-
                   {/* Second two bar graphs */}
-                  <Box className="graph-3" margin={5}>
-                    <PieChart width={725} height={500}>
-                      <Pie data={data_emissions} dataKey="value" nameKey="name" fill="#ffc658" label>
-                        {data_emissions.map((entry, index) => (
+                  <Box className="graph-3" marginRight={5}>
+                    <PieChart width={750} height={500}>
+                      <Pie data={data_sink} dataKey="value" nameKey="name" fill="#FFF000" label>
+                        {data_sink.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -122,14 +121,14 @@ export default function Visualize() {
                   </Box>
 
                   <ResponsiveContainer>
-                    <Box className="graph-4" marginTop={5}>
+                    <Box className="graph-4" marginRight={5}>
                       <AreaChart
                         width={750}
                         height={500}
                         data={data3}
                         margin={{
-                          top: 15,
-                          right: 50,
+                          top: 10,
+                          right: 30,
                           left: 0,
                           bottom: 0,
                         }}
@@ -139,7 +138,7 @@ export default function Visualize() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Area type="monotone" dataKey="uv" stroke="#FFFF00" fill="#FFFF00" />
+                        <Area type="monotone" dataKey="uv" stroke="#FFF000" fill="#FFF000" />
                       </AreaChart>
                     </Box>
                   </ResponsiveContainer>

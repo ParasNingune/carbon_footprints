@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Image, Flex, Link as ChakraLink } from '@chakra-ui/react';
 import logo2 from '../assets/logo2.png';
+import icon from '../assets/icon.png'
 import { Link } from 'react-router-dom';
 
 export default function NavBar() {
@@ -28,7 +29,7 @@ export default function NavBar() {
     >
       {/* Logo */}
       <Box onClick={() => handleScroll('Home')} cursor="pointer">
-        <Image src={logo2} alt="logo" boxSize="50px" />
+        <Image src={icon} alt="logo" boxSize="50px" />
       </Box>
 
       {/* Navigation Links */}

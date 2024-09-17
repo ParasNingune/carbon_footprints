@@ -14,6 +14,7 @@ import {
 import { Link } from 'react-router-dom';
 import { FiMenu, FiLogOut } from 'react-icons/fi';
 import logo2 from '../assets/logo2.png';
+import icon from '../assets/icon.png'
 
 export default function NavBar() {
   const links = [
@@ -46,7 +47,7 @@ export default function NavBar() {
       {/* Logo and Home Link */}
       <Box>
         <ChakraLink as={Link} to="/">
-          <Image src={logo2} alt="logo" boxSize="50px" />
+        <Image src={icon} alt="logo" boxSize="50px" />
         </ChakraLink>
       </Box>
 
