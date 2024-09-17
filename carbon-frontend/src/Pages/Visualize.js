@@ -4,11 +4,19 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, LineChart,
 import NavBar from '../Components/NavBar2';
 
 // Sample data for the bar graphs
-const data = [
+const data_emissions = [
   { name: 'Electricity', value: 4000 },
   { name: 'Fuel', value: 3000 },
   { name: 'Shipping', value: 2000 },
   { name: 'Explosion', value: 2780 },
+  { name: 'Other Factors', value: 1890 },
+];
+
+const data_sink = [
+  { name: 'Afforestation', value: 4000 },
+  { name: 'Carbon Removal & Storage', value: 3000 },
+  { name: 'Direct Air Capture', value: 2000 },
+  { name: 'Ocean Based Approaches', value: 2780 },
   { name: 'Other Factors', value: 1890 },
 ];
 
@@ -57,10 +65,10 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default function Visualize() {
   return (
-    <Box className="main-body" width={'100vw'}>
+    <Box className="main-body" width={'100vw'} height={'95vh'}>
       <NavBar />
       {/* Tabs Navigation */}
-      <Box width={'100%'} padding={6} bgGradient="linear(to-b, #d3d3d3, #f0f0f0)" position={'absolute'} top={'85px'}>
+      <Box width={'100vw'} height={'95vh'} padding={6} bgGradient="linear(to-b, #d3d3d3, #f0f0f0)" position={'absolute'} top={'85px'}>
         <Tabs variant="soft-rounded" colorScheme="yellow" isFitted>
           <TabList>
             <Tab fontWeight="bolder">Emission Analysis</Tab>
@@ -72,37 +80,37 @@ export default function Visualize() {
           <TabPanels>
             {/* Emission Analysis Panel */}
             <TabPanel>
-              <Box bgGradient="linear(to-b, #000000, #434343)" padding={5} borderRadius={25}>
+              <Box bgGradient="linear(to-b, #000000, #434343)" borderRadius={25}>
                 <Box display={'flex'} padding={5}>
                   {/* First two bar graphs */}
-                  <Box className="graph-1" marginRight={5}>
-                    <BarChart width={750} height={500} data={data}>
+                  <Box className="graph-1" marginTop={5}>
+                    <BarChart width={600} height={500} data={data_emissions}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
                       <Tooltip />
                       <Legend />
-                      <Bar dataKey="value" fill=" #FFFF00" />
+                      <Bar dataKey="value" fill="#FFFF00" />
                     </BarChart>
                   </Box>
 
-                  <Box className="graph-2">
-                    <LineChart width={750} height={500} data={data}>
+                  <Box className="graph-2" marginTop={5}>
+                    <LineChart width={750} height={500} data={data_emissions}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
                       <Tooltip />
                       <Legend />
-                      <Line dataKey="value" fill="#ffcc00" />
+                      <Line dataKey="value" fill="#82ca9d" />
                     </LineChart>
                   </Box>
                 </Box>
                 <Box display={'flex'} padding={5}>
                   {/* Second two bar graphs */}
                   <Box className="graph-3" marginRight={5}>
-                    <PieChart width={750} height={500}>
-                      <Pie data={data} dataKey="value" nameKey="name" fill="#ffc658" label>
-                        {data.map((entry, index) => (
+                    <PieChart width={600} height={500}>
+                      <Pie data={data_emissions} dataKey="value" nameKey="name" fill="#ffc658" label>
+                        {data_emissions.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -114,7 +122,7 @@ export default function Visualize() {
                   <ResponsiveContainer>
                     <Box className="graph-4" marginRight={5}>
                       <AreaChart
-                        width={750}
+                        width={725}
                         height={500}
                         data={data3}
                         margin={{
@@ -129,7 +137,7 @@ export default function Visualize() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Area type="monotone" dataKey="uv" stroke="#FFFF00" fill="#FFFF00" />
+                        <Area type="monotone" dataKey="uv" stroke="#AAFF00" fill="#FFFF00" />
                       </AreaChart>
                     </Box>
                   </ResponsiveContainer>
@@ -139,11 +147,11 @@ export default function Visualize() {
 
             {/* Sink Analysis Panel */}
             <TabPanel>
-              <Box bgGradient="linear(to-b, #000000, #434343)" padding={5} borderRadius={25}>
+              <Box bgGradient="linear(to-b, #000000, #434343)" borderRadius={25}>
                 <Box display={'flex'} padding={5}>
                   {/* First two bar graphs */}
-                  <Box className="graph-1" marginRight={5}>
-                    <BarChart width={750} height={500} data={data}>
+                  <Box className="graph-1" marginTop={5}>
+                    <BarChart width={600} height={500} data={data_sink}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
@@ -153,8 +161,8 @@ export default function Visualize() {
                     </BarChart>
                   </Box>
 
-                  <Box className="graph-2">
-                    <LineChart width={750} height={500} data={data}>
+                  <Box className="graph-2" marginTop={5}>
+                    <LineChart width={750} height={500} data={data_sink}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis />
@@ -167,9 +175,9 @@ export default function Visualize() {
                 <Box display={'flex'} padding={5}>
                   {/* Second two bar graphs */}
                   <Box className="graph-3" marginRight={5}>
-                    <PieChart width={750} height={500}>
-                      <Pie data={data} dataKey="value" nameKey="name" fill="#ffc658" label>
-                        {data.map((entry, index) => (
+                    <PieChart width={600} height={500}>
+                      <Pie data={data_sink} dataKey="value" nameKey="name" fill="#ffc658" label>
+                        {data_sink.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -181,7 +189,7 @@ export default function Visualize() {
                   <ResponsiveContainer>
                     <Box className="graph-4" marginRight={5}>
                       <AreaChart
-                        width={750}
+                        width={725}
                         height={500}
                         data={data3}
                         margin={{
@@ -207,36 +215,11 @@ export default function Visualize() {
             {/* Gap Analysis Panel */}
             <TabPanel>
               <Box bgGradient="linear(to-b, #000000, #434343)" padding={5} borderRadius={25}>
-                <Box display={'flex'} padding={5}>
-                  {/* First two bar graphs */}
-                  <Box className="graph-1" marginRight={5}>
-                    <BarChart width={750} height={500} data={data}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <Bar dataKey="value" fill="#EE4B2B" />
-                    </BarChart>
-                  </Box>
-
-                  <Box className="graph-2">
-                    <LineChart width={750} height={500} data={data}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <Line dataKey="value" fill="#EE4B2B" />
-                    </LineChart>
-                  </Box>
-                </Box>
-                <Box display={'flex'} padding={5}>
                   {/* Second two bar graphs */}
-                  <Box className="graph-3" marginRight={5}>
+                  <Box className="graph-3" marginLeft={250}>
                     <PieChart width={750} height={500}>
-                      <Pie data={data} dataKey="value" nameKey="name" fill="#ffc658" label>
-                        {data.map((entry, index) => (
+                      <Pie data={data_sink} dataKey="value" nameKey="name" fill="#ffc658" label>
+                        {data_sink.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -244,31 +227,7 @@ export default function Visualize() {
                       <Legend />
                     </PieChart>
                   </Box>
-
-                  <ResponsiveContainer>
-                    <Box className="graph-4" marginRight={5}>
-                      <AreaChart
-                        width={750}
-                        height={500}
-                        data={data3}
-                        margin={{
-                          top: 10,
-                          right: 30,
-                          left: 0,
-                          bottom: 0,
-                        }}
-                      >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Area type="monotone" dataKey="uv" stroke="#EE4B2B" fill="#EE4B2B" />
-                      </AreaChart>
-                    </Box>
-                  </ResponsiveContainer>
                 </Box>
-              </Box>
             </TabPanel>
           </TabPanels>
         </Tabs>
