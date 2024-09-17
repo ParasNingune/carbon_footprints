@@ -63,15 +63,10 @@ export default function HomePage() {
           mt={10}
         >
           <Heading as="h1" fontSize="3xl" mb={4} color="teal.200">
-            Project Kasukabe helps you understand how your daily choices impact climate change.
+          Team Neutral : Discover how your everyday choices shape a greener future!
           </Heading>
           <Text fontSize="lg" lineHeight="tall" color="gray.300">
-            A carbon footprint is a measure of the total greenhouse gas emissions, primarily carbon dioxide (CO₂), caused by human activities. In
-            the context of coal mining in India, it accounts for emissions generated during the extraction, processing, transportation, and
-            combustion of coal. These emissions significantly contribute to global warming and climate change. By understanding the carbon
-            footprint of mining operations, companies and individuals can identify ways to reduce environmental impact. Our carbon footprint
-            calculator for Indian coal mines helps measure these emissions, providing insights that can guide sustainable practices and cleaner
-            energy transitions.
+          Our vision is to empower the coal mining industry in India with actionable insights to reduce carbon emissions, promoting sustainable mining practices and a cleaner energy future
           </Text>
         </Container>
       </Box>

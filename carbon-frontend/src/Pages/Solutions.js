@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Tabs, TabList, Tab, TabPanels, Image, Card, CardBody, Text, Stack, Heading, TabPanel } from '@chakra-ui/react';
+import { Box, Tabs, TabList, Tab, TabPanels, Image, Card, CardBody, Text, Stack, Heading, TabPanel, Center , Flex } from '@chakra-ui/react';
 
 import NavBar from '../Components/NavBar2';
 
@@ -24,8 +24,8 @@ export default function Solutions() {
               <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
                 Trees & Forests
               </Heading>
-              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-l, green.600, green.100)" marginTop={8}> 
-                <Image src='https://cff2.earth.com/uploads/2024/01/30073039/Reforestation-scaled.jpg' height={'150px'} width={'200px'}/>
+              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-l, green.600, green.100)" marginTop={8}>
+                <Image src='https://cff2.earth.com/uploads/2024/01/30073039/Reforestation-scaled.jpg' height={'150px'} width={'200px'} />
                 <CardBody>
                   <Stack mt={'6'} spacing={3}>
                     <Heading>Reforestation</Heading>
@@ -41,7 +41,7 @@ export default function Solutions() {
                     <Text>Increasing the density of forests where trees have been lost due to disease or disturbances.</Text>
                   </Stack>
                 </CardBody>
-                <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0EAV7Totptq_1jXhcn63L8kV1GFR9rnrAzQ&s' height={'150px'} width={'200px'}/>
+                <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0EAV7Totptq_1jXhcn63L8kV1GFR9rnrAzQ&s' height={'150px'} width={'200px'} />
 
               </Card>
 
@@ -123,21 +123,21 @@ export default function Solutions() {
               </Heading>
               <Text marginTop={8}>
                 Includes a range of processes that use biomass from plants or algae to remove carbon dioxide from the air and then store it for long periods of time. These methods aim to leverage the carbon storage capacity of plants beyond their natural lifecycles: Whereas trees remove and store carbon only until they die and decompose, biomass carbon removal and storage aims to sequester the CO2 that plants capture more permanently.
-                There are many different methods for removing carbon using biomass.<br/>These include:- 
-                <br/>1. Creation of biochar, which is made by heating biomass in low-oxygen environments to produce a charcoal-like soil additive that sequesters carbon.
-                <br/>2. Bio-oil, which uses a similar process to produce a liquid that gets injected underground; and permanent storage of carbon-rich biomass in vaults.
-                <br/>3. Bioenergy carbon capture and storage (BECCS) is another carbon removal pathway which involves generating energy using biomass and then capturing and sequestering the resulting CO2 emissions.
-                <br/>4. Converting biomass to hydrogen, which could result in a carbon-negative fuel.
-                <br/>
-                <br/>While biomass carbon removal and storage can offer long-term CO2 removal.
+                There are many different methods for removing carbon using biomass.<br />These include:-
+                <br />1. Creation of biochar, which is made by heating biomass in low-oxygen environments to produce a charcoal-like soil additive that sequesters carbon.
+                <br />2. Bio-oil, which uses a similar process to produce a liquid that gets injected underground; and permanent storage of carbon-rich biomass in vaults.
+                <br />3. Bioenergy carbon capture and storage (BECCS) is another carbon removal pathway which involves generating energy using biomass and then capturing and sequestering the resulting CO2 emissions.
+                <br />4. Converting biomass to hydrogen, which could result in a carbon-negative fuel.
+                <br />
+                <br />While biomass carbon removal and storage can offer long-term CO2 removal.
               </Text>
-              <Image
-                src="https://a.storyblok.com/f/287364/999x666/13cbb6f55f/bicrs-pathway.jpeg"
-                height={500}
-                width={900}
-                marginTop={10}
-                marginLeft={220}
-              />
+              <Flex justify="center" marginTop={10}>
+                <Image
+                  src="https://a.storyblok.com/f/287364/999x666/13cbb6f55f/bicrs-pathway.jpeg"
+                  height={500}
+                  width={900}
+                />
+              </Flex>
             </TabPanel>
 
             <TabPanel>
@@ -145,7 +145,7 @@ export default function Solutions() {
                 Direct Air Capture
               </Heading>
               <Text marginTop={8}>
-              Direct air capture is the process of chemically scrubbing carbon dioxide from the ambient air and then sequestering it either underground or in long-lived products like concrete.<br/><br/>This technology is similar to the carbon capture and storage technology used to reduce emissions from sources like power plants and industrial facilities.<br/>The difference is that direct air capture removes excess carbon that’s already been emitted into the atmosphere, instead of capturing it at the source.
+                Direct air capture is the process of chemically scrubbing carbon dioxide from the ambient air and then sequestering it either underground or in long-lived products like concrete.<br /><br />This technology is similar to the carbon capture and storage technology used to reduce emissions from sources like power plants and industrial facilities.<br />The difference is that direct air capture removes excess carbon that’s already been emitted into the atmosphere, instead of capturing it at the source.
               </Text>
               <Image
                 src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/direct-air-capture-carbon-removal-wri.png?VersionId=lHsRmjJsvbLjR_.ERGbgF738EDLhOOzS&itok=fkto6A9Y"
@@ -160,9 +160,9 @@ export default function Solutions() {
               <Heading marginTop={5} textDecoration={'underline'}>
                 Carbon Mineralization
               </Heading>
-              <Text marginTop={8}> 
-                Some minerals naturally react with CO2, turning carbon dioxide from a gas into a solid and keeping it out of the atmosphere permanently. This process is commonly referred to as “carbon mineralization” or “enhanced weathering,” and it naturally happens very slowly, over hundreds or thousands of years.  
-                <br/><br/>To speed up the carbon mineralization process, especially by enhancing the exposure of these minerals to CO2 in the air or ocean. Which means moving air through large deposits of mine tailings (rocks left over from mining operations) that contain the right mineral composition, crushing or developing enzymes that chew up mineral deposits to increase their surface area, spreading certain types of ground rock on croplands or coastal areas where it reacts with and locks away carbon dioxide, and finding ways for certain industrial byproducts, like fly ash, kiln dust or iron and steel slag, that are reactive with CO2 to sequester it.
+              <Text marginTop={8}>
+                Some minerals naturally react with CO2, turning carbon dioxide from a gas into a solid and keeping it out of the atmosphere permanently. This process is commonly referred to as “carbon mineralization” or “enhanced weathering,” and it naturally happens very slowly, over hundreds or thousands of years.
+                <br /><br />To speed up the carbon mineralization process, especially by enhancing the exposure of these minerals to CO2 in the air or ocean. Which means moving air through large deposits of mine tailings (rocks left over from mining operations) that contain the right mineral composition, crushing or developing enzymes that chew up mineral deposits to increase their surface area, spreading certain types of ground rock on croplands or coastal areas where it reacts with and locks away carbon dioxide, and finding ways for certain industrial byproducts, like fly ash, kiln dust or iron and steel slag, that are reactive with CO2 to sequester it.
               </Text>
               <Image
                 src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/carbon-mineralization-carbon-removal-wri.png?VersionId=QeY6oiC.5Ze0V4ioR5kYpV46v_K5R38Q&itok=WmxoyuBj"
@@ -177,9 +177,9 @@ export default function Solutions() {
               <Heading marginTop={5} textDecoration={'underline'}>
                 Ocean-Based-Approaches
               </Heading>
-              <Text marginTop={8}> 
+              <Text marginTop={8}>
                 A number of ocean-based carbon removal approaches have been proposed to leverage the ocean’s capacity to sequester carbon and expand the portfolio of options beyond land-based applications. However, nearly all of these strategies are at early stages of development and require more research, and in some cases field testing, to understand whether they are appropriate for investment given potential ecological, social and governance impacts.
-                <br/> <br/>Each approach aims to accelerate natural carbon cycles in the ocean. Potential solutions include leveraging photosynthesis in coastal plants, seaweed, or phytoplankton; adding certain minerals to seawater that react with dissolved CO2 and lock it away; or running an electric current through seawater to accelerate reactions that ultimately help extract CO2.
+                <br /> <br />Each approach aims to accelerate natural carbon cycles in the ocean. Potential solutions include leveraging photosynthesis in coastal plants, seaweed, or phytoplankton; adding certain minerals to seawater that react with dissolved CO2 and lock it away; or running an electric current through seawater to accelerate reactions that ultimately help extract CO2.
               </Text>
               <Image
                 src="https://oceanvisions.org/wp-content/uploads/2023/08/Ocean-Based-Carbon-Dioxide-Removal-1024x665.png"
