@@ -23,7 +23,7 @@ export default function CalEmissions() {
   };
 
   const handleSubmit = () => {
-    // Handle form submission logic here
+    //API
     setCalculatedValue('Calculated Value: 1234');
   };
 
