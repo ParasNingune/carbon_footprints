@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
+
 import {
   Box,
   Select,
   Input,
   FormControl,
   FormLabel,
-  VStack,
+  Button,
   Heading,
   Flex,
   Container,
-  Button,
+  TabPanel,
   Text,
+  Tabs,
+  Tab,
+  TabList,
+  TabPanels,
 } from '@chakra-ui/react';
+import {
+  FormErrorMessage,
+  FormHelperText,
+} from '@chakra-ui/react'
+
 import NavBar2 from "../Components/NavBar2";
 
 export default function CalEmissions() {
   const [selectedForm, setSelectedForm] = useState('');
-  const [calculatedValue, setCalculatedValue] = useState('');
+  const [calculatedCO2Value, setCalculatedCO2Value] = useState('');
+  const [calculatedNO2Value, setCalculatedNO2Value] = useState('');
+  const [calculatedCH4Value, setCalculatedCH4Value] = useState('');
+  const [calculatedTotalValue, setCalculatedTotalValue] = useState('');
 
   const handleFormChange = (e) => {
     setSelectedForm(e.target.value);
@@ -24,167 +37,564 @@ export default function CalEmissions() {
 
   const handleSubmit = () => {
     //API
-    setCalculatedValue('Calculated Value: 1234');
-  };
-
-  const renderForm = () => {
-    switch (selectedForm) {
-      case 'form1':
-        return (
-          <VStack spacing={4} width="full">
-            <FormControl>
-              <FormLabel>State Name</FormLabel>
-              <Input placeholder="Enter state name" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Energy per Time</FormLabel>
-              <Input placeholder="Enter energy per time" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Responsible area</FormLabel>
-              <Input placeholder="Enter responsible area" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Total area (m²)</FormLabel>
-              <Input placeholder="Enter total area" bg="gray.50" />
-            </FormControl>
-          </VStack>
-        );
-      case 'form2':
-        return (
-          <VStack spacing={4} width="full">
-            <FormControl>
-              <FormLabel>Explosion Type</FormLabel>
-              <Input placeholder="Enter explosion type" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Amount of explosive used</FormLabel>
-              <Input placeholder="Enter amount of explosive" bg="gray.50" />
-            </FormControl>
-          </VStack>
-        );
-      case 'form3':
-        return (
-          <VStack spacing={4} width="full">
-            <FormControl>
-              <FormLabel>Fuel Type</FormLabel>
-              <Input placeholder="Enter fuel type" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Volume of fuel consumed (litres)</FormLabel>
-              <Input placeholder="Enter volume of fuel" bg="gray.50" />
-            </FormControl>
-          </VStack>
-        );
-      case 'form4':
-        return (
-          <VStack spacing={4} width="full">
-            <FormControl>
-              <FormLabel>Weight unit</FormLabel>
-              <Input placeholder="Enter weight unit" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Weight value</FormLabel>
-              <Input placeholder="Enter weight value" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Distance unit</FormLabel>
-              <Input placeholder="Enter distance unit" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Distance value</FormLabel>
-              <Input placeholder="Enter distance value" bg="gray.50" />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Transport Method</FormLabel>
-              <Input placeholder="Enter transport method" bg="gray.50" />
-            </FormControl>
-          </VStack>
-        );
-      default:
-        return <Box>Please select a form.</Box>;
-    }
+    setCalculatedCO2Value('12345');
+    setCalculatedNO2Value('54321');
+    setCalculatedCH4Value('1122');
+    setCalculatedTotalValue('67778');
   };
 
   return (
     <Box
       className="main-body"
       minH="100vh"
-      bgGradient="linear(to-r, #f5f7fa, #c3cfe2)"
+      bgGradient="linear(to-b, #f5f7fa, #c3cfe2)"
     >
       <NavBar2 />
-      <Flex
-        direction="column"
-        align="center"
-        justify="center"
-        minH="100vh"
-        padding={6}
-        color="black"
-      >
-        <Heading as="h2" size="lg" mb={6} color="gray.800">
-          CARBON EMISSIONS
-        </Heading>
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          align="flex-start"
-          justify="center"
-          gap={10}
-        >
-          <Container
-            maxW="md"
-            bg="white"
-            borderRadius="lg"
-            boxShadow="2xl"
-            p={8}
-            backdropFilter="blur(10px)"
-          >
-            <Select
-              placeholder="Select a form"
-              onChange={handleFormChange}
-              mb={5}
-              bg="gray.100"
-              color="black"
-              _hover={{ bg: 'gray.200' }}
-            >
-              <option value="form1">Electricity Consumption</option>
-              <option value="form2">Explosion Emissions</option>
-              <option value="form3">Fuel consumption</option>
-              <option value="form4">Shipping Emissions</option>
-            </Select>
-            {renderForm()}
-            {selectedForm && (
-              <Button
-                mt={6}
-                colorScheme="teal"
-                width="full"
-                onClick={handleSubmit}
-                boxShadow="md"
-                _hover={{ boxShadow: 'lg' }}
-              >
-                Calculate
-              </Button>
-            )}
-          </Container>
 
-          {/* Calculated Value Box */}
-          <Container
-            maxW="sm"
-            bg="white"
-            borderRadius="lg"
-            boxShadow="2xl"
-            p={8}
-            backdropFilter="blur(10px)"
-            minW={{ base: 'full', md: 'sm' }}
-          >
-            <Heading as="h3" size="md" mb={4} color="gray.800">
-              Calculated Value
-            </Heading>
-            <Text fontSize="xl" color="teal.600">
-              {calculatedValue || 'No calculation yet.'}
-            </Text>
-          </Container>
-        </Flex>
-      </Flex>
+      <Box width={'15%'} height={'90vh'}  position={'absolute'} left={0} top={'83px'} backgroundColor="rgba(0, 0, 0, 0.8)"  display={'flex'} flexDirection={'column'}>
+        <Tabs orientation="vertical"  isFitted variant={'enclosed'} colorScheme='green' flex="1" display="flex" flexDirection="column">
+          <TabList display={'flex'} flexDirection={'column'} flex={'1'} gap={4} padding={2}> 
+            <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Electricity Consumption</Tab>
+            <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Explosion Emissions</Tab>
+            <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Fuel consumption</Tab>
+            <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Shipping Emissions</Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel>
+              <Box 
+                top={45} 
+                left={350} 
+                position={'absolute'} 
+                backgroundColor={'white'} 
+                height={'80vh'} 
+                width={'30vw'} 
+                borderRadius={'15px'} 
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'} 
+                padding={'30px'} 
+                transition={'all 0.3s ease'}  // Added smooth transition for hover effects
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }} // Elevate on hover
+              >
+                {/* State Selection */}
+                <FormControl isRequired padding={3}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Select State
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* State options */}
+                    <option>Jharkhand</option>
+                    <option>West Bengal</option>
+                    <option>Chhattisgarh</option>
+                    <option>Odisha</option>
+                    <option>Telangana/ Andhra Pradesh</option>
+                    <option>Tamil Nadu</option>
+                    <option>Maharashtra</option>
+                    <option>Assam</option>
+                    <option>Madhya Pradesh</option>
+                    <option>Meghalaya</option>
+                  </Select>
+                </FormControl>
+
+                {/* Energy Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Energy Usage (KW/h)
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter energy consumption"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                {/* Responsible Area Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Responsible Area (sq. km)
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter responsible area"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                {/* Total Area Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Total Area (sq. km)
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter total area"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                {/* Calculate Button */}
+                <Box display="flex" justifyContent="center" mt={8}>
+                  <Button 
+                    colorScheme="teal" 
+                    size="lg" 
+                    onClick={handleSubmit} 
+                    boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                    _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                    _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                    transition="all 0.2s ease"
+                  >
+                    Calculate
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* Results Box */}
+              <Box
+                backgroundColor={'white'}
+                top={'45px'} 
+                left={850} 
+                position={'absolute'} 
+                borderRadius={'15px'}
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'}
+                padding={'30px'}
+                height={'80vh'} 
+                width={'30vw'}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                transition={'all 0.3s ease'}  // Smooth hover effect
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }}  // Elevate on hover
+              >
+                <Text fontWeight="bold" color="gray.700" mb={4} fontSize={36} position="absolute" top={120}>
+                  Calculated Results
+                </Text>
+
+                {/* Dynamic Results Data */}
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CO2 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  N2O Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedNO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CH4 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCH4Value}</span>
+                </Text>
+                <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
+                  Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
+                </Text>
+              </Box>
+            </TabPanel>
+
+
+            {/* Explosion Emissions*/}
+            <TabPanel>
+              <Box 
+                top={'45px'} 
+                left={350} 
+                position={'absolute'} 
+                backgroundColor={'white'} 
+                height={'80vh'} 
+                width={'30vw'} 
+                borderRadius={'15px'} 
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'} 
+                padding={'30px'} 
+                transition={'all 0.3s ease'}  // Added smooth transition for hover effects
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }} // Elevate on hover
+              >
+                {/* State Selection */}
+                <FormControl isRequired padding={3}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Explosive Type
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* State options */}
+                    <option>Dynamite</option>
+                    <option>Smokeless Powder</option>
+                    <option>Black Powder</option>
+                    <option>TNT</option>
+                    <option>RDX</option>
+                    <option>ANFO</option>
+                  </Select>
+                </FormControl>
+
+                {/* Units Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Units Used
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* Unit options select*/}
+                    <option>Kilograms</option>
+                    <option>Grams</option>
+                    <option>Pounds</option>
+                    <option>Tons</option>
+                  </Select>
+                </FormControl>
+
+                {/* Explosive used  Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Amount of Explosives used
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter amount of explossives"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                
+
+                {/* Calculate Button */}
+                <Box display="flex" justifyContent="center" mt={8}>
+                  <Button 
+                    colorScheme="teal" 
+                    size="lg" 
+                    onClick={handleSubmit} 
+                    boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                    _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                    _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                    transition="all 0.2s ease"
+                  >
+                    Calculate
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* Results Box */}
+              <Box
+                backgroundColor={'white'}
+                top={'45px'} 
+                left={850} 
+                position={'absolute'} 
+                borderRadius={'15px'}
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'}
+                padding={'30px'}
+                height={'80vh'} 
+                width={'30vw'}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                transition={'all 0.3s ease'}  // Smooth hover effect
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }}  // Elevate on hover
+              >
+                <Text fontWeight="bold" color="gray.700" mb={4} fontSize={36} position="absolute" top={120}>
+                  Calculated Results
+                </Text>
+
+                {/* Dynamic Results Data */}
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CO2 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  N2O Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedNO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CH4 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCH4Value}</span>
+                </Text>
+                <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
+                  Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
+                </Text>
+              </Box>
+            </TabPanel>
+
+
+            {/* Fuel Consumption*/}
+            <TabPanel>
+              <Box 
+                top={'45px'} 
+                left={350} 
+                position={'absolute'} 
+                backgroundColor={'white'} 
+                height={'80vh'} 
+                width={'30vw'} 
+                borderRadius={'15px'} 
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'} 
+                padding={'30px'} 
+                transition={'all 0.3s ease'}  // Added smooth transition for hover effects
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }} // Elevate on hover
+              >
+                {/* State Selection */}
+                <FormControl isRequired padding={3}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Fuel Type
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* Fuel options */}
+                    <option>Petrol</option>
+                    <option>Diesel</option>
+                    <option>LPG</option>
+                    <option>CNG</option>
+                  </Select>
+                </FormControl>
+
+                {/* Units Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Units Used
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* Unit options select*/}
+                    <option>litres</option>
+                    <option>Mili-Litres</option>
+                    <option>Galons</option>
+                  </Select>
+                </FormControl>
+
+                {/* Fuel used  Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Amount of Fuel used
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter amount of fuel"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                
+
+                {/* Calculate Button */}
+                <Box display="flex" justifyContent="center" mt={8}>
+                  <Button 
+                    colorScheme="teal" 
+                    size="lg" 
+                    onClick={handleSubmit} 
+                    boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                    _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                    _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                    transition="all 0.2s ease"
+                  >
+                    Calculate
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* Results Box */}
+              <Box
+                backgroundColor={'white'}
+                top={'45px'} 
+                left={850} 
+                position={'absolute'} 
+                borderRadius={'15px'}
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'}
+                padding={'30px'}
+                height={'80vh'} 
+                width={'30vw'}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                transition={'all 0.3s ease'}  // Smooth hover effect
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }}  // Elevate on hover
+              >
+                <Text fontWeight="bold" color="gray.700" mb={4} fontSize={36} position="absolute" top={120}>
+                  Calculated Results
+                </Text>
+
+                {/* Dynamic Results Data */}
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CO2 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  N2O Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedNO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CH4 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCH4Value}</span>
+                </Text>
+                <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
+                  Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
+                </Text>
+              </Box>
+            </TabPanel>
+
+
+            {/* Shipping Consumption*/}
+            <TabPanel>
+              <Box 
+                top={'45px'} 
+                left={350} 
+                position={'absolute'} 
+                backgroundColor={'white'} 
+                height={'80vh'} 
+                width={'30vw'} 
+                borderRadius={'15px'} 
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'} 
+                padding={'30px'} 
+                transition={'all 0.3s ease'}  // Added smooth transition for hover effects
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }} // Elevate on hover
+              >
+                {/* Transportation type Selection */}
+                <FormControl isRequired padding={3}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Transport Method
+                  </FormLabel>
+                  <Select 
+                    onChange={handleFormChange} 
+                    borderColor="gray.300" 
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }}
+                    transition="all 0.3s ease"  // Smooth focus and hover transitions
+                  >
+                    {/* Fuel options */}
+                    <option>Truck</option>
+                    <option>Ship</option>
+                    <option>Rail</option>
+                    <option>Plane</option>
+                  </Select>
+                </FormControl>
+
+                {/* Weight Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Weight of cargo (kg)
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter amount shipped"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                {/* Distance Input */}
+                <FormControl isRequired padding={3} mt={4}>
+                  <FormLabel padding={2} fontSize="lg" fontWeight="bold" color="gray.700">
+                    Distance Travelled
+                  </FormLabel>
+                  <Input 
+                    type="number" 
+                    borderColor="gray.300"
+                    borderRadius="10px"
+                    _hover={{ borderColor: 'teal.400' }} 
+                    _focus={{ borderColor: 'teal.500', boxShadow: '0 0 0 1px teal.500' }} 
+                    placeholder="Enter distance travelled"
+                    transition="all 0.3s ease"
+                  />
+                </FormControl>
+
+                
+
+                {/* Calculate Button */}
+                <Box display="flex" justifyContent="center" mt={8}>
+                  <Button 
+                    colorScheme="teal" 
+                    size="lg" 
+                    onClick={handleSubmit} 
+                    boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                    _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                    _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                    transition="all 0.2s ease"
+                  >
+                    Calculate
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* Results Box */}
+              <Box
+                backgroundColor={'white'}
+                top={'45px'} 
+                left={850} 
+                position={'absolute'} 
+                borderRadius={'15px'}
+                boxShadow={'0 8px 16px rgba(0, 0, 0, 0.1)'}
+                padding={'30px'}
+                height={'80vh'} 
+                width={'30vw'}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                transition={'all 0.3s ease'}  // Smooth hover effect
+                _hover={{ boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)' }}  // Elevate on hover
+              >
+                <Text fontWeight="bold" color="gray.700" mb={4} fontSize={36} position="absolute" top={120}>
+                  Calculated Results
+                </Text>
+
+                {/* Dynamic Results Data */}
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CO2 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  N2O Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedNO2Value}</span>
+                </Text>
+                <Text fontSize={24} color="gray.600" padding={3}>
+                  CH4 Emitted: <span style={{ fontWeight: 'bold', color: 'teal' }}>{calculatedCH4Value}</span>
+                </Text>
+                <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
+                  Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
+                </Text>
+              </Box>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Box>
+      <Box width={'15%'} height={'90vh'}  position={'absolute'} right={0} top={'83px'} backgroundColor="rgba(0, 0, 0, 0.8)"  display={'flex'} flexDirection={'column'}>
+
+      </Box>
     </Box>
   );
 }
