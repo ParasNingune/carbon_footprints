@@ -73,7 +73,7 @@ export default function Visualize() {
                 <Box display={'flex'} padding={5} flexWrap="wrap">
                   <Box className="graph-1" marginRight={5} flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
-                      <BarChart data={data_sink}>
+                      <BarChart data={data_emissions}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -97,6 +97,7 @@ export default function Visualize() {
                     </ResponsiveContainer>
                   </Box>
                 </Box>
+                
                 <Box display={'flex'} padding={5} flexWrap="wrap">
                   <Box className="graph-3" marginRight={5} flex={1}>
                     <ResponsiveContainer width="100%" height={400}>

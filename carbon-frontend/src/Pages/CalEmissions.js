@@ -64,7 +64,7 @@ export default function CalEmissions() {
             <TabPanel>
               <Box 
                 top={45} 
-                left={350} 
+                left={300} 
                 position={'absolute'} 
                 backgroundColor={'white'} 
                 height={'80vh'} 
@@ -151,10 +151,11 @@ export default function CalEmissions() {
                 </FormControl>
 
                 {/* Calculate Button */}
-                <Box display="flex" justifyContent="center" mt={8}>
+                <Box display="flex" justifyContent="center" mt={8} flexDirection={'column'}>
                   <Button 
                     colorScheme="teal" 
                     size="lg" 
+                    alignSelf={'center'}
                     onClick={handleSubmit} 
                     boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
                     _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}

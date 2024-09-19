@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Image, Heading, Text, Container, Stack, IconButton, Flex } from '@chakra-ui/react';
-import { Card, CardBody } from '@chakra-ui/react';
+import { Box, Image, Heading, Text, Container, Stack, IconButton, Flex, Divider } from '@chakra-ui/react';
+import { Card, CardBody, Button} from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../Components/NavBar';
 import { IoMail } from "react-icons/io5";
 import { MdMessage } from "react-icons/md";
@@ -8,6 +9,12 @@ import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import photo from "../assets/Bg.jpg";
 
 export default function HomePage() {
+
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/login'); // Navigate to the specified route
+  };
   return (
     <Box className="main-body" color="white" overflowY="auto">
       {/* Background Image */}
@@ -35,16 +42,16 @@ export default function HomePage() {
         justifyContent="center"
         textAlign="center"
         padding={10}
-        minHeight="100vh"  
-        mt={10}            
+        minHeight="100vh"
+        mt={10}
       >
         {/* Main Heading */}
         <Container maxW="container.md" textAlign="center" padding={6} mt={10}>
           <Text
-            fontSize="6xl"
+            fontSize={{ base: '4xl', md: '6xl' }}
             lineHeight="short"
             color="yellow.400"
-            textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
+            textShadow="2px 2px 6px rgba(0, 0, 0, 0.7)"
             letterSpacing="wider"
             fontWeight="bold"
           >
@@ -58,88 +65,102 @@ export default function HomePage() {
           textAlign="center"
           bg="rgba(0, 0, 0, 0.7)"
           borderRadius="lg"
-          boxShadow="xl"
+          boxShadow="2xl"
           padding={8}
           mt={10}
         >
           <Heading as="h1" fontSize="3xl" mb={4} color="teal.200">
-          Team Neutral : Discover how your everyday choices shape a greener future!
+            Team Neutral: Shaping a Greener Future with Every Choice!
           </Heading>
           <Text fontSize="lg" lineHeight="tall" color="gray.300">
-          Our vision is to empower the coal mining industry in India with actionable insights to reduce carbon emissions, promoting sustainable mining practices and a cleaner energy future
+            Our mission is to help India's coal mining industry reduce carbon emissions, promote sustainable practices, and secure a cleaner energy future.
           </Text>
+
+          {/*Get started Button*/}
+          <Button
+            onClick={handleGetStarted}
+            colorScheme="teal"
+            size="lg"
+            mt={8}
+            px={8}
+            _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+          >
+            Get Started
+          </Button>
         </Container>
       </Box>
 
-        {/* Services Section */}
+      {/* Services Section */}
       <Box
-          className="Services-Container"
-          id="Services"
-          bgGradient="linear(to-b, green.600, green.100)"
-
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          padding={10}
-          mt={10}
-          minHeight="80vh"
-        >
-          <Heading as="h2" fontSize="4xl" fontWeight="bold" color="white" mb={8} top={'125vh'} position={'absolute'}>
-            Our Services
-          </Heading>
-          <Flex wrap="wrap" gap={8} justifyContent="center" alignItems="center" top={'135vh'} position={'absolute'}>
-            {[
-              { title: "Estimate Emissions", desc: "Estimate your carbon emissions by filling certain values." },
-              { title: "Estimate Sink", desc: "Estimate your carbon sink by filling certain values." },
-              { title: "Gap Analysis", desc: "Analyze the gap between carbon emissions and carbon sink." },
-              { title: "Solutions", desc: "Providing solutions to minimize the gap between emissions and sink." },
-            ].map((service, index) => (
-              <Card key={index} width="42vw" bg="whiteAlpha.800" borderRadius="lg" boxShadow="2xl" height="10vw">
-                <CardBody>
-                  {/* <Image src={photo} alt={service.title} borderRadius="lg" /> */}
-                  <Stack mt={6} spacing={3}>
-                    <Heading size="md" color="teal.600">
-                      {service.title}
-                    </Heading>
-                    <Text color="gray.700">{service.desc}</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-            ))}
-          </Flex>
-        </Box>
-
-        {/* Contact Us Section */}
-        <Box
-          className="ContactUsContainer"
-          id="ContactUs"
-          bgGradient="linear(to-b, green.600, green.100)"
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          padding={10}
-          mt={10}
-          minHeight="50vh"
-        >
-          <Heading as="h1" fontSize="4xl" fontWeight={800} color="white" mb={6}>
-            Contact Us
-          </Heading>
-          <Flex gap={6}>
-            {[IoMail, MdMessage, FaLinkedin, FaInstagram].map((Icon, index) => (
-              <IconButton
-                key={index}
-                icon={<Icon size={50} />}
-                aria-label="Contact Icon"
-                variant="ghost"
-                color="white"
-                _hover={{ color: "teal.300", transform: "scale(1.1)" }}
-                transition="0.2s"
-              />
-            ))}
-          </Flex>
-        </Box>
+        id="Services"
+        bgGradient="linear(to-b, teal.500, green.300)"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        padding={10}
+        mt={10}
+        minHeight="80vh"
+      >
+        <Heading as="h2" fontSize="4xl" fontWeight="bold" color="white" mb={8}>
+          Our Services
+        </Heading>
+        <Flex wrap="wrap" gap={8} justifyContent="center" alignItems="center">
+          {[
+            { title: "Estimate Emissions", desc: "Estimate your carbon emissions by filling certain values." },
+            { title: "Estimate Sink", desc: "Estimate your carbon sink by filling certain values." },
+            { title: "Gap Analysis", desc: "Analyze the gap between carbon emissions and carbon sink." },
+            { title: "Solutions", desc: "Find solutions to minimize the gap between emissions and sink." },
+          ].map((service, index) => (
+            <Card key={index} width="40vw" bg="whiteAlpha.900" borderRadius="xl" boxShadow="2xl" transition="0.3s" _hover={{ transform: 'scale(1.05)' }}>
+              <CardBody>
+                <Stack mt={4} spacing={3}>
+                  <Heading size="md" color="teal.600" textAlign="center">
+                    {service.title}
+                  </Heading>
+                  <Text color="gray.700" textAlign="center">{service.desc}</Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          ))}
+        </Flex>
       </Box>
-      );
+
+      {/* Contact Us Section */}
+      <Box
+        id="ContactUs"
+        bgGradient="linear(to-b, green.600, green.300)"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        padding={10}
+        mt={10}
+        minHeight="50vh"
+      >
+        <Heading as="h1" fontSize="4xl" fontWeight={800} color="white" mb={6}>
+          Contact Us
+        </Heading>
+        <Flex gap={6}>
+          {[IoMail, MdMessage, FaLinkedin, FaInstagram].map((Icon, index) => (
+            <IconButton
+              key={index}
+              icon={<Icon size={50} />}
+              aria-label="Contact Icon"
+              variant="ghost"
+              color="white"
+              _hover={{ color: "teal.300", transform: "scale(1.2)" }}
+              transition="0.3s"
+            />
+          ))}
+        </Flex>
+      </Box>
+
+      {/* Footer */}
+      <Divider borderColor="gray.400" mt={8} />
+      <Box textAlign="center" py={6} color="gray.400">
+        © 2024 Team Neutral | All Rights Reserved
+      </Box>
+    </Box>
+  );
 }
