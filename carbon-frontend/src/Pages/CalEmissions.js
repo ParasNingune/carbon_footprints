@@ -210,7 +210,7 @@ export default function CalEmissions() {
             <TabPanel>
               <Box 
                 top={'45px'} 
-                left={350} 
+                left={300} 
                 position={'absolute'} 
                 backgroundColor={'white'} 
                 height={'80vh'} 
@@ -342,7 +342,7 @@ export default function CalEmissions() {
             <TabPanel>
               <Box 
                 top={'45px'} 
-                left={350} 
+                left={300} 
                 position={'absolute'} 
                 backgroundColor={'white'} 
                 height={'80vh'} 
@@ -471,7 +471,7 @@ export default function CalEmissions() {
             <TabPanel>
               <Box 
                 top={'45px'} 
-                left={350} 
+                left={300} 
                 position={'absolute'} 
                 backgroundColor={'white'} 
                 height={'80vh'} 
