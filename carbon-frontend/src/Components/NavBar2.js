@@ -66,6 +66,7 @@ export default function NavBar() {
               fontSize="lg"
               color="white"
               _hover={{ textDecoration: 'underline', color: 'teal.200' }}
+              _active={{textDecoration: 'underline', color: 'teal.200' }}
               padding={2}
             >
               {item.name}

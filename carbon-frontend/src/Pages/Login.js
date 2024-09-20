@@ -57,7 +57,7 @@ export default function Login() {
           A STEP TOWARDS CARBON NEUTRALITY!
         </Heading>
         <Text color="gray.500" fontSize="inherit" mb={6}>
-          Sign in to continue to your dashboard
+          Log in to continue to your dashboard
         </Text>
         <Divider mb={4} />
         <form onSubmit={handleSubmit}>
