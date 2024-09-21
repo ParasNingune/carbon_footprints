@@ -60,7 +60,7 @@ export default function NavBar() {
 
         <Box marginX={3}>
           <Link
-            to="/login"
+            to="/emissions"
             fontSize="lg"
             color="white"
             _hover={{ textDecoration: 'underline', color: 'teal.200' }}

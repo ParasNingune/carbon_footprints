@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Select,
@@ -25,14 +25,28 @@ import {
 import NavBar2 from "../Components/NavBar2";
 
 export default function CalEmissions() {
+  const [activeTab, setActiveTab] = useState(0);
   const [selectedForm, setSelectedForm] = useState('');
   const [calculatedCO2Value, setCalculatedCO2Value] = useState('');
   const [calculatedNO2Value, setCalculatedNO2Value] = useState('');
   const [calculatedCH4Value, setCalculatedCH4Value] = useState('');
-  const [calculatedTotalValue, setCalculatedTotalValue] = useState('');
+  const [calculatedTotalValue, setCalculatedTotalValue] = useState('');  
+  const navigate = useNavigate();
+  const handleTabChange = (index) => {
+    setActiveTab(index);
+    // Reset calculated values on tab change
+    setCalculatedCO2Value('');
+    setCalculatedNO2Value('');
+    setCalculatedCH4Value('');
+    setCalculatedTotalValue('');
+  };
 
   const handleFormChange = (e) => {
     setSelectedForm(e.target.value);
+  };
+
+  const handleVisualize = () => {
+    navigate('/visualization');  // Route to visualization page
   };
 
   const handleSubmit = () => {
@@ -52,7 +66,7 @@ export default function CalEmissions() {
       <NavBar2 />
 
       <Box width={'15%'} height={'90vh'}  position={'absolute'} left={0} top={'83px'} backgroundColor="rgba(0, 0, 0, 0.8)"  display={'flex'} flexDirection={'column'}>
-        <Tabs orientation="vertical"  isFitted variant={'enclosed'} colorScheme='green' flex="1" display="flex" flexDirection="column">
+        <Tabs orientation="vertical"  isFitted variant={'enclosed'} colorScheme='green' flex="1" display="flex" flexDirection="column" onChange={handleTabChange}>
           <TabList display={'flex'} flexDirection={'column'} flex={'1'} gap={4} padding={2}> 
             <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Electricity Consumption</Tab>
             <Tab flex={'1'} _selected={{ bg: "grey" }} fontSize={20} fontWeight={600} textColor={'white'}>Explosion Emissions</Tab>
@@ -202,6 +216,23 @@ export default function CalEmissions() {
                 <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
                   Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
                 </Text>
+
+                {/* Visualize Button */}
+                {calculatedTotalValue && (
+                  <Button
+                    colorScheme="teal"
+                    size="lg"
+                    bottom={10}
+                    position={'absolute'}
+                    mt={10}
+                    onClick={handleVisualize}  // Route to visualization page
+                    _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                    _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                    transition="all 0.2s ease"
+                  >
+                    Visualize
+                  </Button>
+                )}
               </Box>
             </TabPanel>
 
@@ -334,6 +365,23 @@ export default function CalEmissions() {
                 <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
                   Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
                 </Text>
+
+                {/* Visualize Button */}
+                {calculatedTotalValue && (
+                  <Button
+                  colorScheme="teal"
+                  size="lg"
+                  bottom={10}
+                  position={'absolute'}
+                  mt={10}
+                  onClick={handleVisualize}  // Route to visualization page
+                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                  transition="all 0.2s ease"
+                >
+                    Visualize
+                  </Button>
+                )}
               </Box>
             </TabPanel>
 
@@ -463,6 +511,23 @@ export default function CalEmissions() {
                 <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
                   Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
                 </Text>
+
+                {/* Visualize Button */}
+                {calculatedTotalValue && (
+                  <Button
+                  colorScheme="teal"
+                  size="lg"
+                  bottom={10}
+                  position={'absolute'}
+                  mt={10}
+                  onClick={handleVisualize}  // Route to visualization page
+                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                  transition="all 0.2s ease"
+                >
+                    Visualize
+                  </Button>
+                )}
               </Box>
             </TabPanel>
 
@@ -588,6 +653,23 @@ export default function CalEmissions() {
                 <Text fontSize={28} color="gray.600" padding={2} position={'absolute'} bottom={100} fontWeight={'bold'}>
                   Total Carbon Emitted: <span style={{ color: 'teal', fontWeight: 'bold' }}>{calculatedTotalValue}</span>
                 </Text>
+
+                {/* Visualize Button */}
+                {calculatedTotalValue && (
+                  <Button
+                  colorScheme="teal"
+                  size="lg"
+                  bottom={10}
+                  position={'absolute'}
+                  mt={10}
+                  onClick={handleVisualize}  // Route to visualization page
+                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                  transition="all 0.2s ease"
+                >
+                    Visualize
+                  </Button>
+                )}
               </Box>
             </TabPanel>
           </TabPanels>

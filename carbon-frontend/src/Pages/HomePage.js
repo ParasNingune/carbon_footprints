@@ -13,7 +13,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/login'); // Navigate to the specified route
+    navigate('/emissions'); // Navigate to the specified route
   };
   return (
     <Box className="main-body" color="white" overflowY="auto">

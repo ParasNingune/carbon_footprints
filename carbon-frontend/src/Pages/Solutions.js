@@ -12,11 +12,11 @@ export default function Solutions() {
         <Tabs variant={'soft-rounded'} colorScheme='green' isFitted>
           <TabList bgGradient="linear(to-b, black.400, black.100)">
             <Tab>Trees & Forests</Tab>
-            <Tab>Carbon Credits</Tab>
             <Tab>Biomass Carbon Removal & Storage</Tab>
             <Tab>Direct Air Capture</Tab>
             <Tab>Carbon Mineralization</Tab>
             <Tab>Ocean-based Approaches</Tab>
+            <Tab>Carbon Credits</Tab>
           </TabList>
 
           <TabPanels>
@@ -74,44 +74,6 @@ export default function Solutions() {
                   </Stack>
                 </CardBody>
               </Card>
-            </TabPanel>
-
-            <TabPanel>
-              <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
-                Carbon Credits
-              </Heading>
-
-              <Box
-                backgroundColor={'white'}
-                height={'200px'}
-                width={'80%'}
-                marginTop={200}
-                marginLeft={100}
-                marginBottom={170}
-                borderRadius={'10px'}
-                boxShadow={'0 4px 12px rgba(0, 0, 0, 0.1)'}
-                padding={'20px'}
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                alignItems={'center'}
-              >
-                <Text fontSize={'2xl'} fontWeight={'bold'} color={'teal.600'} textAlign={'center'} marginBottom={5}>
-                Access the Carbon Credits Marketplace
-                </Text>
-
-                <Button
-                  colorScheme="teal"
-                  size="lg"
-                  boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
-                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
-                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
-                  transition="all 0.2s ease"
-                  onClick={() => window.open('https://ctxglobal.com/net-zero/', '_blank')}
-                >
-                  Go to Marketplace
-                </Button>
-              </Box>
             </TabPanel>
 
             <TabPanel padding={6}>
@@ -185,6 +147,44 @@ export default function Solutions() {
                 marginTop={10}
                 marginLeft={220}
               />
+            </TabPanel>
+
+            <TabPanel>
+              <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
+                Carbon Credits
+              </Heading>
+
+              <Box
+                backgroundColor={'white'}
+                height={'200px'}
+                width={'80%'}
+                marginTop={200}
+                marginLeft={100}
+                marginBottom={170}
+                borderRadius={'10px'}
+                boxShadow={'0 4px 12px rgba(0, 0, 0, 0.1)'}
+                padding={'20px'}
+                display={'flex'}
+                flexDirection={'column'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              >
+                <Text fontSize={'2xl'} fontWeight={'bold'} color={'teal.600'} textAlign={'center'} marginBottom={5}>
+                Access the Carbon Credits Marketplace
+                </Text>
+
+                <Button
+                  colorScheme="teal"
+                  size="lg"
+                  boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                  transition="all 0.2s ease"
+                  onClick={() => window.open('https://ctxglobal.com/net-zero/', '_blank')}
+                >
+                  Go to Marketplace
+                </Button>
+              </Box>
             </TabPanel>
           </TabPanels>
         </Tabs>
