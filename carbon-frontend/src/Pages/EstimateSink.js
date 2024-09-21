@@ -407,10 +407,89 @@ export default function CalEmissions() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-      </Box>
-      <Box width={'15%'} height={'90vh'}  position={'absolute'} right={0} top={'83px'} backgroundColor="rgba(0, 0, 0, 0.8)"  display={'flex'} flexDirection={'column'}>
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"  // Ensures the ads are stacked vertically
+          justifyContent="space-between"  // Distributes space between the ads
+          height="90vh"  // Full height of the viewport
+          width="15%"  // Adjust width as needed
+          backgroundColor="gray.800"  // Background color for the sidebar
+          borderRadius="15px"
+          boxShadow="0 8px 16px rgba(0, 0, 0, 0.1)"
+          right={0}
+          top={83}
+          position={'absolute'}
+        >
+          {/* Ad Section 1 */}
+          <Box
+            flexGrow={1}  // Ensures this box takes equal vertical space
+            backgroundColor="gray.100"
+            borderRadius="15px"
+            display="flex"
+            width={'93%'}
+            left={5}
+            justifyContent="center"
+            alignItems="center"
+            ml={2}
+            mb={3}
+            mt={3}
+            height={'14%'}
+          >
+            <Text color="gray.600">Ad Section 1</Text>
+          </Box>
 
+          {/* Ad Section 2 */}
+          <Box
+            flexGrow={1}  // Ensures this box takes equal vertical space
+            backgroundColor="gray.100"
+            borderRadius="15px"
+            display="flex"
+            width={'93%'}
+            left={5}
+            justifyContent="center"
+            alignItems="center"
+            ml={2}
+            mb={3}
+            height={'14%'}
+          >
+            <Text color="gray.600">Ad Section 2</Text>
+          </Box>
+
+          {/* Ad Section 3 */}
+          <Box
+            flexGrow={1}  // Ensures this box takes equal vertical space
+            backgroundColor="gray.100"
+            borderRadius="15px"
+            display="flex"
+            width={'93%'}
+            left={5}
+            justifyContent="center"
+            alignItems="center"
+            ml={2}
+            mb={3}
+            height={'14%'}
+          >
+            <Text color="gray.600">Ad Section 3</Text>
+          </Box>
+
+          {/* Ad Section 4 */}
+          <Box
+            flexGrow={1}  // Ensures this box takes equal vertical space
+            backgroundColor="gray.100"
+            borderRadius="15px"
+            display="flex"
+            width={'93%'}
+            left={5}
+            justifyContent="center"
+            alignItems="center"
+            ml={2}
+            mb={3}
+            height={'14%'}
+          >
+            <Text color="gray.600">Ad Section 4</Text>
+          </Box>
+        </Box>
       </Box>
-    </Box>
   );
 }
