@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiLogOut } from 'react-icons/fi';
-import logo2 from '../assets/logo2.png';
 import icon from '../assets/icon.png'
 
 export default function NavBar() {
@@ -22,6 +21,7 @@ export default function NavBar() {
     { name: 'Carbon Sink', link: '/sink' },
     { name: 'Gap Closure', link: '/solutions' },
     { name: 'Visualizations', link: '/visualization' },
+    {name: 'Credits', link: '/carbon-credit'},
   ];
 
   const handleLogout = () => {

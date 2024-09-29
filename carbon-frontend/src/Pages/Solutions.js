@@ -17,6 +17,10 @@ export default function Solutions() {
             <Tab>Direct Air Capture</Tab>
             <Tab>Carbon Mineralization</Tab>
             <Tab>Ocean-based Approaches</Tab>
+<<<<<<< Updated upstream
+=======
+            {/* <Tab>Credits</Tab> */}
+>>>>>>> Stashed changes
           </TabList>
 
           <TabPanels>
@@ -131,7 +135,7 @@ export default function Solutions() {
                 <br />
                 <br />While biomass carbon removal and storage can offer long-term CO2 removal.
               </Text>
-              <Flex justify="center" marginTop={10}>
+              <Flex justifyContent="center" marginTop={10}>
                 <Image
                   src="https://a.storyblok.com/f/287364/999x666/13cbb6f55f/bicrs-pathway.jpeg"
                   height={500}
@@ -147,13 +151,13 @@ export default function Solutions() {
               <Text marginTop={8}>
                 Direct air capture is the process of chemically scrubbing carbon dioxide from the ambient air and then sequestering it either underground or in long-lived products like concrete.<br /><br />This technology is similar to the carbon capture and storage technology used to reduce emissions from sources like power plants and industrial facilities.<br />The difference is that direct air capture removes excess carbon that’s already been emitted into the atmosphere, instead of capturing it at the source.
               </Text>
-              <Image
-                src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/direct-air-capture-carbon-removal-wri.png?VersionId=lHsRmjJsvbLjR_.ERGbgF738EDLhOOzS&itok=fkto6A9Y"
-                height={500}
-                width={900}
-                marginTop={10}
-                marginLeft={220}
-              />
+              <Flex justifyContent="center" marginTop={10}>
+                <Image
+                  src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/direct-air-capture-carbon-removal-wri.png?VersionId=lHsRmjJsvbLjR_.ERGbgF738EDLhOOzS&itok=fkto6A9Y"
+                  height={500}
+                  width={900}
+                />
+                </Flex>
             </TabPanel>
 
             <TabPanel>
@@ -164,13 +168,13 @@ export default function Solutions() {
                 Some minerals naturally react with CO2, turning carbon dioxide from a gas into a solid and keeping it out of the atmosphere permanently. This process is commonly referred to as “carbon mineralization” or “enhanced weathering,” and it naturally happens very slowly, over hundreds or thousands of years.
                 <br /><br />To speed up the carbon mineralization process, especially by enhancing the exposure of these minerals to CO2 in the air or ocean. Which means moving air through large deposits of mine tailings (rocks left over from mining operations) that contain the right mineral composition, crushing or developing enzymes that chew up mineral deposits to increase their surface area, spreading certain types of ground rock on croplands or coastal areas where it reacts with and locks away carbon dioxide, and finding ways for certain industrial byproducts, like fly ash, kiln dust or iron and steel slag, that are reactive with CO2 to sequester it.
               </Text>
-              <Image
-                src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/carbon-mineralization-carbon-removal-wri.png?VersionId=QeY6oiC.5Ze0V4ioR5kYpV46v_K5R38Q&itok=WmxoyuBj"
-                height={500}
-                width={900}
-                marginTop={10}
-                marginLeft={220}
-              />
+              <Flex justifyContent="center" marginTop={10}>
+                <Image
+                  src="https://files.wri.org/d8/s3fs-public/styles/1575_wide/s3/2023-03/carbon-mineralization-carbon-removal-wri.png?VersionId=QeY6oiC.5Ze0V4ioR5kYpV46v_K5R38Q&itok=WmxoyuBj"
+                  height={500}
+                  width={900}
+                />
+              </Flex>
             </TabPanel>
 
             <TabPanel>
@@ -181,14 +185,56 @@ export default function Solutions() {
                 A number of ocean-based carbon removal approaches have been proposed to leverage the ocean’s capacity to sequester carbon and expand the portfolio of options beyond land-based applications. However, nearly all of these strategies are at early stages of development and require more research, and in some cases field testing, to understand whether they are appropriate for investment given potential ecological, social and governance impacts.
                 <br /> <br />Each approach aims to accelerate natural carbon cycles in the ocean. Potential solutions include leveraging photosynthesis in coastal plants, seaweed, or phytoplankton; adding certain minerals to seawater that react with dissolved CO2 and lock it away; or running an electric current through seawater to accelerate reactions that ultimately help extract CO2.
               </Text>
-              <Image
-                src="https://oceanvisions.org/wp-content/uploads/2023/08/Ocean-Based-Carbon-Dioxide-Removal-1024x665.png"
-                height={500}
-                width={900}
-                marginTop={10}
-                marginLeft={220}
-              />
+              <Flex justifyContent="center" marginTop={10}>
+                <Image
+                  src="https://oceanvisions.org/wp-content/uploads/2023/08/Ocean-Based-Carbon-Dioxide-Removal-1024x665.png"
+                  height={500}
+                  width={900}
+                />
+                </Flex>
             </TabPanel>
+<<<<<<< Updated upstream
+=======
+            {/* <TabPanel>
+              <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
+                Carbon Credits
+              </Heading>
+
+              <Box
+                backgroundColor={'white'}
+                height={'500px'}
+                width={'80%'}
+                marginTop={10}
+                marginLeft={140}
+                marginBottom={170}
+                borderRadius={'10px'}
+                boxShadow={'0 4px 12px rgba(0, 0, 0, 0.1)'}
+                padding={'20px'}
+                display={'flex'}
+                flexDirection={'column'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              >
+                <Heading fontSize={'xl'}>Carbon credits are a way to measure and reduce carbon emissions, and are also known as carbon offsets. They are a unit of measurement that represents 1,000 kg of carbon dioxide that has been removed or prevented from entering the atmosphere. Carbon credits are created by projects that reduce carbon emissions or absorb carbon from the atmosphere. 
+                </Heading>
+                <Text fontSize={'2xl'} fontWeight={'bold'} color={'teal.600'} textAlign={'center'} marginBottom={5} marginTop={20}>
+                Access the Carbon Credits Marketplace
+                </Text>
+
+                <Button
+                  colorScheme="teal"
+                  size="lg"
+                  boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
+                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
+                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
+                  transition="all 0.2s ease"
+                  onClick={() => window.open('https://ctxglobal.com/net-zero/', '_blank')}
+                >
+                  Go to Marketplace
+                </Button>
+              </Box>
+            </TabPanel> */}
+>>>>>>> Stashed changes
           </TabPanels>
         </Tabs>
       </Box>
