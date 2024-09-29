@@ -28,8 +28,6 @@ export default function CarbonCredits() {
             alignItems={'center'}
             >
             
-            <Text fontSize={'xl'} >Carbon credits are a way to measure and reduce carbon emissions, and are also known as carbon offsets. They are a unit of measurement that represents 1,000 kg of carbon dioxide that has been removed or prevented from entering the atmosphere. Carbon credits are created by projects that reduce carbon emissions or absorb carbon from the atmosphere. 
-            </Text>
             <Text fontSize={'2xl'} fontWeight={'bold'} color={'teal.600'} textAlign={'center'} marginBottom={5} marginTop={20}>
             Access the Carbon Credits Marketplace
             </Text>
