@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Tabs, TabList, Tab, TabPanels, Image, Card, CardBody, Text, Stack, Heading, TabPanel, Center , Flex } from '@chakra-ui/react';
+import { Box, Tabs, TabList, Tab, TabPanels, Image, Card, CardBody, Text, Stack, Heading, TabPanel, Center, Flex , Button } from '@chakra-ui/react';
 
 import NavBar from '../Components/NavBar2';
 
@@ -12,15 +12,10 @@ export default function Solutions() {
         <Tabs variant={'soft-rounded'} colorScheme='green' isFitted>
           <TabList bgGradient="linear(to-b, black.400, black.100)">
             <Tab>Trees & Forests</Tab>
-            <Tab>Farms & Soils</Tab>
             <Tab>Biomass Carbon Removal & Storage</Tab>
             <Tab>Direct Air Capture</Tab>
             <Tab>Carbon Mineralization</Tab>
             <Tab>Ocean-based Approaches</Tab>
-<<<<<<< Updated upstream
-=======
-            {/* <Tab>Credits</Tab> */}
->>>>>>> Stashed changes
           </TabList>
 
           <TabPanels>
@@ -75,47 +70,6 @@ export default function Solutions() {
                   <Stack mt={'6'} spacing={3}>
                     <Heading>Urban reforestation</Heading>
                     <Text>Increasing tree cover in urban areas.</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </TabPanel>
-
-            <TabPanel>
-              <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
-                Farm & Soils
-              </Heading>
-              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-r, green.600, green.100)" marginTop={8}>
-                <CardBody>
-                  <Stack mt={'6'} spacing={3}>
-                    <Heading>Regenerative Agriculture</Heading>
-                    <Text>Regenerative farming practices focus on restoring soil health and biodiversity, which helps sequester carbon dioxide (CO₂) from the atmosphere. Techniques such as crop rotation, cover cropping, no-till farming, and agroforestry all contribute to building healthier soils that trap more carbon, prevent erosion, and increase water retention.</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-
-              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-l, green.600, green.100)">
-                <CardBody>
-                  <Stack mt={'6'} spacing={3}>
-                    <Heading>Soil Carbon Sequestration</Heading>
-                    <Text>Healthy soils are capable of storing vast amounts of carbon. By enhancing soil organic matter through composting and minimizing chemical inputs, farms can trap carbon within the soil for extended periods. This process, called carbon sequestration, can significantly lower the levels of greenhouse gases in the atmosphere.</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-
-              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-r, green.600, green.100)">
-                <CardBody>
-                  <Stack mt={'6'} spacing={3}>
-                    <Heading>Reducing Methane Emissions</Heading>
-                    <Text>Agriculture is also a major source of methane (CH₄), a potent greenhouse gas. By improving livestock management, such as rotational grazing and better feed strategies, methane emissions can be reduced. In addition, capturing methane from manure and using it for bioenergy can turn a harmful byproduct into a sustainable energy source.</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-
-              <Card borderRadius={15} margin={5} direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='outline' bgGradient="linear(to-l, green.600, green.100)">
-                <CardBody>
-                  <Stack mt={'6'} spacing={3}>
-                    <Heading>Precision Farming</Heading>
-                    <Text>Precision farming uses data-driven tools such as GPS and satellite imagery to optimize fertilizer and water use, reducing unnecessary inputs that lead to emissions. By targeting resources more effectively, farms can lower their carbon footprint while maintaining or increasing crop yields.</Text>
                   </Stack>
                 </CardBody>
               </Card>
@@ -193,48 +147,6 @@ export default function Solutions() {
                 />
                 </Flex>
             </TabPanel>
-<<<<<<< Updated upstream
-=======
-            {/* <TabPanel>
-              <Heading marginTop={5} textDecoration={'underline'} marginLeft={7}>
-                Carbon Credits
-              </Heading>
-
-              <Box
-                backgroundColor={'white'}
-                height={'500px'}
-                width={'80%'}
-                marginTop={10}
-                marginLeft={140}
-                marginBottom={170}
-                borderRadius={'10px'}
-                boxShadow={'0 4px 12px rgba(0, 0, 0, 0.1)'}
-                padding={'20px'}
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                alignItems={'center'}
-              >
-                <Heading fontSize={'xl'}>Carbon credits are a way to measure and reduce carbon emissions, and are also known as carbon offsets. They are a unit of measurement that represents 1,000 kg of carbon dioxide that has been removed or prevented from entering the atmosphere. Carbon credits are created by projects that reduce carbon emissions or absorb carbon from the atmosphere. 
-                </Heading>
-                <Text fontSize={'2xl'} fontWeight={'bold'} color={'teal.600'} textAlign={'center'} marginBottom={5} marginTop={20}>
-                Access the Carbon Credits Marketplace
-                </Text>
-
-                <Button
-                  colorScheme="teal"
-                  size="lg"
-                  boxShadow={'0 6px 12px rgba(0, 0, 0, 0.1)'}
-                  _hover={{ backgroundColor: 'teal.600', boxShadow: '0 10px 14px rgba(0, 0, 0, 0.2)' }}
-                  _active={{ backgroundColor: 'teal.700', transform: 'scale(0.98)' }}
-                  transition="all 0.2s ease"
-                  onClick={() => window.open('https://ctxglobal.com/net-zero/', '_blank')}
-                >
-                  Go to Marketplace
-                </Button>
-              </Box>
-            </TabPanel> */}
->>>>>>> Stashed changes
           </TabPanels>
         </Tabs>
       </Box>

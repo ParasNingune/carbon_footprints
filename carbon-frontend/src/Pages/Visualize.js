@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, ResponsiveContainer , Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import NavBar from '../Components/NavBar2';
 
 // Sample data for the bar graphs
@@ -53,6 +53,39 @@ const data3 = [
   }
 ];
 
+const data_radar = [
+  {
+    subject: 'Electricity',
+    A: 120,
+    B: 110,
+    fullMark: 150,
+  },
+  {
+    subject: 'Fuel',
+    A: 98,
+    B: 130,
+    fullMark: 150,
+  },
+  {
+    subject: 'Shipping',
+    A: 86,
+    B: 130,
+    fullMark: 150,
+  },
+  {
+    subject: 'Explosion',
+    A: 99,
+    B: 100,
+    fullMark: 150,
+  },
+  {
+    subject: 'Other Factors',
+    A: 85,
+    B: 90,
+    fullMark: 150,
+  },
+];
+
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default function Visualize() {
@@ -86,18 +119,16 @@ export default function Visualize() {
 
                   <Box className="graph-2" flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
-                      <LineChart data={data_sink}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#FFF000" />
-                      </LineChart>
+                      <RadarChart cx="50%" cy="50%" outerRadius="90%" data={data_radar}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="subject" />
+                        <PolarRadiusAxis />
+                        <Radar name="Mike" dataKey="A" stroke="#FFF000" fill="#FFF000" fillOpacity={0.7} />
+                      </RadarChart>
                     </ResponsiveContainer>
                   </Box>
                 </Box>
-                
+
                 <Box display={'flex'} padding={5} flexWrap="wrap">
                   <Box className="graph-3" marginRight={5} flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
@@ -155,17 +186,16 @@ export default function Visualize() {
 
                   <Box className="graph-2" flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
-                      <LineChart data={data_sink}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#FF5733" />
-                      </LineChart>
+                      <RadarChart cx="50%" cy="50%" outerRadius="90%" data={data_radar}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="subject" />
+                        <PolarRadiusAxis />
+                        <Radar name="Mike" dataKey="A" stroke="#FF5733" fill="#FF5733" fillOpacity={0.7} />
+                      </RadarChart>
                     </ResponsiveContainer>
                   </Box>
                 </Box>
+
                 <Box display={'flex'} padding={5} flexWrap="wrap">
                   <Box className="graph-3" marginRight={5} flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
@@ -222,17 +252,16 @@ export default function Visualize() {
 
                   <Box className="graph-2" flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
-                      <LineChart data={data_sink}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#AAFF00" />
-                      </LineChart>
+                      <RadarChart cx="50%" cy="50%" outerRadius="90%" data={data_radar}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="subject" />
+                        <PolarRadiusAxis />
+                        <Radar name="Mike" dataKey="A" stroke="#AAFF00" fill="#AAFF00" fillOpacity={0.7} />
+                      </RadarChart>
                     </ResponsiveContainer>
                   </Box>
                 </Box>
+
                 <Box display={'flex'} padding={5} flexWrap="wrap">
                   <Box className="graph-3" marginRight={5} flex={1}>
                     <ResponsiveContainer width="100%" height={400}>
